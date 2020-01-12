@@ -2,12 +2,12 @@ import sys
 import math
 
 d = input().split(" ")
-deg = round(int(d[0]) / 10)
+deg = round(int(d[0]) / 10, 1)
 dis = int(d[1])
 
 if not (0 <= deg < 360) or not (0 <= dis < 12000):
     sys.exit()
-
+#
 hougaku = [
     [11.25,"NNE"],
     [33.75,"NE"],
@@ -32,30 +32,31 @@ husoku = [
 ]
 cnt = 0
 dir = ''
-w = 0
+w = -1
+print(deg)
 while cnt <= len(hougaku)-1:
     if len(hougaku)-1 <= cnt:
-        if round(hougaku[cnt][0]) <= deg:
+        if hougaku[cnt][0] <= deg:
             dir = hougaku[cnt][1]
     else:
-        if round( (hougaku[cnt][0]) ) <= deg < round(hougaku[cnt + 1][0]):
+        if hougaku[cnt][0] <= deg < hougaku[cnt + 1][0]:
             dir = hougaku[cnt][1]
     cnt+=1
 cnt = 0
 dis = round(dis / 60, 2)
-c = 1
+s = 0
+e = husoku[0]
 while cnt <= len(husoku)-1:
-    if(dis <= husoku[cnt]):
+    if(dis <= husoku[0]):
         dir = 'C'
         w = 0
         break
     else:
-        if len(husoku)-1 <= cnt:
-            if husoku[cnt] <= dis:
-                w = c
-        else:
-            if husoku[cnt] <= dis < husoku[cnt + 1]+0.1:
-                w = c
-    cnt+=1
-    c+=1
+        print("{0} <= {1} <= {2}, {3}".format(s,dis,e,cnt + 1))
+        if s <= dis <= e:
+            w = cnt + 1
+            break
+        s = round(e + 0.1, 2)
+        cnt+=1
+        e = husoku[cnt]
 print("{0} {1}".format(dir, w))
