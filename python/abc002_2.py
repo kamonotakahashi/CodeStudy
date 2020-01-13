@@ -8,13 +8,21 @@ def search(c, ary):
             return TRUE
     return FALSE
 
-
+list = ['a','i','u','e','o']
+alphabet = [chr(i) for i in range(97, 97+26)]
 W = input()
+put = ''
+hitCnt = 0
 if not 1 <= len(W) <= 30:
     sys.exit()
-list = ['a','i','u','e','o']
-put = ''
+
 for i in range(0,len(W)):
     if search(W[i], list) != 1:
         put = put + W[i]
+        hitCnt = hitCnt+1
+    if search(W[i], alphabet) != 1:
+        sys.exit()
+
+if hitCnt < 1:
+    sys.exit()
 print(put)
