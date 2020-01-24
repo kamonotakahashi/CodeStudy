@@ -9,7 +9,7 @@ Y = input().split(" ")
 
 if not N == len(Y):
     sys.exit()
-
+#
 for l in range(0, len(Y)):
     c = int(Y[l])
     s = 1
