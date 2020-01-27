@@ -1,4 +1,6 @@
 import sys
+import random
+import math
 
 N = int(input())
 
@@ -9,16 +11,24 @@ Y = input().split(" ")
 
 if not N == len(Y):
     sys.exit()
-##
+cc = []
 for l in range(0, len(Y)):
     c = int(Y[l])
-    s = 1
-    e = c*2 - 1
     if not (-1000 <= c <= 1000):
         sys.exit()
-    while 1:
-        if(s > e):
+    cc.append(c * 2)
+
+dd = [0] * N
+sum = 0
+for c in range(0, len(cc)):
+    while(1):
+        for l in range(0, len(cc)):
+            if not l == c:
+                dd[l] = random.randrange(int(cc[c]))
+                sum = sum + dd[l]
+            else:
+                break
+        print("cc={0},sum={1}".format(cc[c],sum))
+        if cc[c] == sum:
             break
-        print("{0},{1}".format(s,e))
-        s = s + 1
-        e = e - 1
+        sum = 0
