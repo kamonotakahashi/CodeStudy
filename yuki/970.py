@@ -26,8 +26,6 @@ for c in range(0, len(cc)):
             if not l == c:
                 dd[l] = random.randrange(int(cc[c]))
                 sum = sum + dd[l]
-            else:
-                break
         print("cc={0},sum={1}".format(cc[c],sum))
         if cc[c] == sum:
             break
