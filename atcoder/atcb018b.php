@@ -4,7 +4,7 @@ $S = trim(fgets(STDIN));
 (1<=strlen($S)&&strlen($S)<=100) || exit();
 $N = trim(fgets(STDIN));
 (1<=$N&&$N<=100) || exit();
-
+//
 $num = $S;
 for($i = 0;$i < $N;$i++){
   $c = explode(' ',trim(fgets(STDIN)));
