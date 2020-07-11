@@ -1,2 +1,5 @@
-20 3
-5 10 15
+4
+cat dog
+fish fish
+lion tiger
+fish fish
