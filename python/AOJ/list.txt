@@ -1,5 +1,1 @@
-4
-cat dog
-fish fish
-lion tiger
-fish fish
+1.123 0.0 1.123 100.0
